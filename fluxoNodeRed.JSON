@@ -1,0 +1,128 @@
+[
+    {
+        "id": "7d689ba79b869da0",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "change-gols",
+        "type": "change",
+        "z": "7d689ba79b869da0",
+        "name": "Set Payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "debug-gols",
+                "4454d1263d8d646c"
+            ]
+        ]
+    },
+    {
+        "id": "debug-gols",
+        "type": "debug",
+        "z": "7d689ba79b869da0",
+        "name": "Debug Gol",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 930,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4454d1263d8d646c",
+        "type": "ui_gauge",
+        "z": "7d689ba79b869da0",
+        "name": "",
+        "group": "7562bed9274a7e23",
+        "order": 1,
+        "width": 13,
+        "height": 9,
+        "gtype": "gage",
+        "title": "Gols",
+        "label": "QUANTIDADE",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#0036b3",
+            "#0036b3",
+            "#0036b3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "inject-simular-gol",
+        "type": "inject",
+        "z": "7d689ba79b869da0",
+        "name": "Simular Gol",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "change-gols"
+            ]
+        ]
+    },
+    {
+        "id": "7562bed9274a7e23",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "dashboard-tab",
+        "order": 1,
+        "disp": false,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dashboard-tab",
+        "type": "ui_tab",
+        "name": "Placar",
+        "icon": "",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e9fecdb9a129ea36",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
