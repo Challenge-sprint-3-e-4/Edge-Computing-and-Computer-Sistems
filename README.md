@@ -71,7 +71,7 @@ npm install node-red-dashboard
 * https://wokwi.com/projects/441176120848930817
 
 ### 🎥 Link Vídeo
-* https://youtu.be/vx783fbvrM4
+* https://youtu.be/QlN6PtF68uw
 ---
 
 ## 💡 Observações
@@ -86,5 +86,6 @@ npm install node-red-dashboard
 Este projeto mostra como **IoT e Node-RED** podem ser integrados para criar dashboards em tempo real, promovendo **automação, monitoramento e análise de dados**, totalmente aplicáveis a eventos esportivos ou outras situações que exigem coleta de dados em tempo real.
 
 ---
+
 
 
