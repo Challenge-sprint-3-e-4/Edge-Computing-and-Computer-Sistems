@@ -1,54 +1,74 @@
 [
     {
-        "id": "7d689ba79b869da0",
+        "id": "e3ce1b1a54ddedfd",
         "type": "tab",
-        "label": "Fluxo 1",
+        "label": "MQTT ESP32 Dashboard",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
-        "id": "change-gols",
+        "id": "8f596b96902dae66",
+        "type": "mqtt in",
+        "z": "e3ce1b1a54ddedfd",
+        "name": "Receber Gols MQTT",
+        "topic": "futebol/gols",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "mqtt-broker",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "65fe8618cd32b86f"
+            ]
+        ]
+    },
+    {
+        "id": "65fe8618cd32b86f",
         "type": "change",
-        "z": "7d689ba79b869da0",
+        "z": "e3ce1b1a54ddedfd",
         "name": "Set Payload",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "payload",
+                "to": "payload.gols",
                 "tot": "msg"
             }
         ],
-        "x": 630,
-        "y": 340,
+        "x": 450,
+        "y": 100,
         "wires": [
             [
-                "debug-gols",
-                "4454d1263d8d646c"
+                "04a07288e8a3b723",
+                "d58cbfff17ec0ab6"
             ]
         ]
     },
     {
-        "id": "debug-gols",
+        "id": "04a07288e8a3b723",
         "type": "debug",
-        "z": "7d689ba79b869da0",
+        "z": "e3ce1b1a54ddedfd",
         "name": "Debug Gol",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 930,
-        "y": 280,
+        "x": 650,
+        "y": 40,
         "wires": []
     },
     {
-        "id": "4454d1263d8d646c",
+        "id": "d58cbfff17ec0ab6",
         "type": "ui_gauge",
-        "z": "7d689ba79b869da0",
-        "name": "",
+        "z": "e3ce1b1a54ddedfd",
+        "name": "Gols",
         "group": "7562bed9274a7e23",
         "order": 1,
         "width": 13,
@@ -68,42 +88,44 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 950,
-        "y": 360,
+        "x": 650,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "inject-simular-gol",
-        "type": "inject",
-        "z": "7d689ba79b869da0",
-        "name": "Simular Gol",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 430,
-        "y": 340,
-        "wires": [
-            [
-                "change-gols"
-            ]
-        ]
+        "id": "mqtt-broker",
+        "type": "mqtt-broker",
+        "name": "Servidor MQTT",
+        "broker": "192.168.0.11",
+        "port": "1883",
+        "clientid": "NodeRED-Test",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "7562bed9274a7e23",
         "type": "ui_group",
-        "name": "Group 2",
+        "name": "Contagem de Gols",
         "tab": "dashboard-tab",
         "order": 1,
-        "disp": false,
+        "disp": true,
         "width": 13,
         "collapse": false,
         "className": ""
@@ -112,13 +134,13 @@
         "id": "dashboard-tab",
         "type": "ui_tab",
         "name": "Placar",
-        "icon": "",
+        "icon": "dashboard",
         "order": 1,
         "disabled": false,
         "hidden": false
     },
     {
-        "id": "e9fecdb9a129ea36",
+        "id": "817fd9a90443b220",
         "type": "global-config",
         "env": [],
         "modules": {
