@@ -50,10 +50,10 @@ Este é um **projeto acadêmico da FIAP**, desenvolvido como parte do **Challeng
    ArduinoJson
    PubSubClient
    ```
-3. Carregue o código do ESP32 com o **IP do broker MQTT local**:
+3. Carregue o código do ESP32 com o **IP do Servidor**:
 
 ```cpp
-const char* mqtt_server = "192.168.0.11"; // IP da VM/PC com Mosquitto
+const char* mqtt_server = "192.168.0.11"; // IP do servidor VM/PC com Mosquitto
 ```
 
 4. Ligue o ESP32 e verifique no Serial Monitor se conecta ao Wi-Fi e ao MQTT.
@@ -85,7 +85,7 @@ const char* mqtt_server = "192.168.0.11"; // IP da VM/PC com Mosquitto
 
 ### 🎥 Link Vídeo
 
-* [https://youtu.be/RJVUImIFS1E](https://youtu.be/RJVUImIFS1E)
+* [https://youtu.be/kjcRgrMZRvkE](https://youtu.be/kjcRgrMZRvk)
 
 ---
 
@@ -99,3 +99,4 @@ const char* mqtt_server = "192.168.0.11"; // IP da VM/PC com Mosquitto
 ## 📌 Resumo
 
 Este projeto demonstra como **IoT, MQTT e Node-RED** podem ser integrados para criar **dashboards em tempo real**, promovendo **automação, monitoramento e análise de dados**, totalmente aplicáveis a eventos esportivos ou outras situações de coleta de dados em tempo real.
+
