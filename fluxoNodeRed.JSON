@@ -7,20 +7,20 @@
         "info": ""
     },
     {
-        "id": "8f596b96902dae66",
+        "id": "b9e9e4fea498568b",
         "type": "mqtt in",
         "z": "e3ce1b1a54ddedfd",
         "name": "Receber Gols MQTT",
         "topic": "futebol/gols",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "mqtt-broker",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9f7a0c4d.123456",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 100,
+        "x": 170,
+        "y": 120,
         "wires": [
             [
                 "65fe8618cd32b86f"
@@ -41,8 +41,8 @@
                 "tot": "msg"
             }
         ],
-        "x": 450,
-        "y": 100,
+        "x": 420,
+        "y": 120,
         "wires": [
             [
                 "04a07288e8a3b723",
@@ -60,8 +60,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 650,
-        "y": 40,
+        "x": 620,
+        "y": 60,
         "wires": []
     },
     {
@@ -88,15 +88,15 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 650,
+        "x": 620,
         "y": 160,
         "wires": []
     },
     {
-        "id": "mqtt-broker",
+        "id": "9f7a0c4d.123456",
         "type": "mqtt-broker",
         "name": "Servidor MQTT",
-        "broker": "192.168.0.11",
+        "broker": "54.173.242.135",
         "port": "1883",
         "clientid": "NodeRED-Test",
         "autoConnect": true,
@@ -140,7 +140,7 @@
         "hidden": false
     },
     {
-        "id": "817fd9a90443b220",
+        "id": "de5eeb5fdddad031",
         "type": "global-config",
         "env": [],
         "modules": {
