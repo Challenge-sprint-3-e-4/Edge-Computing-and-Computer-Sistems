@@ -1,5 +1,5 @@
 /*
-  Projeto IoT - Contagem de Gols via IR
+  Projeto IoT - Contagem de Gols via IR (Wokwi)
   Integrantes:
   João Vitor Parizotto Rocha | RM: 562719
   Giovana Bernardino Carnevali | RM: 566196
@@ -8,25 +8,23 @@
   Artur Distrutti Santos | RM: 561319
 */
 
-// Bibliotecas
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
 // ======== Config Wi-Fi =========
-const char* ssid = "SEU_WIFI";       // substitua pelo seu Wi-Fi real
-const char* password = "SUA_SENHA";
+const char* ssid = "Wokwi-GUEST";   // Wi-Fi da simulação Wokwi
+const char* password = "";
 
 // ======== Config MQTT ==========
-const char* mqtt_server = "192.168.0.11"; // IP da VM Ubuntu com Mosquitto
+const char* mqtt_server = "54.173.242.135";
 const int mqtt_port = 1883;
-const char* topic = "futebol/gols";
+const char* topic = "inova/futebol/gols";
 
-// ======== Pinos ESP32 ==========
+// ======== Pinos ESP32 =========
 const int ledPin = 18;
 const int sensorIR = 2;
 
-// ======== Variáveis ==========
 int totalGols = 0;
 
 // ======== Objetos ==========
@@ -34,7 +32,7 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 StaticJsonDocument<64> doc;
 
-// ======== Setup ==========
+// ======== Funções ==========
 void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(sensorIR, INPUT);
@@ -54,14 +52,13 @@ void setup() {
   client.setServer(mqtt_server, mqtt_port);
 }
 
-// ======== Loop ==========
 void loop() {
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
 
-  // Se sensor IR detectar objeto (gol)
+  // Simula gol com sensor IR
   if (digitalRead(sensorIR) == LOW) {
     totalGols++;
 
@@ -70,13 +67,13 @@ void loop() {
     char buffer[64];
     serializeJson(doc, buffer);
 
-    // Publicar no broker local
+    // Publicar no broker público
     client.publish(topic, buffer);
 
     Serial.print("Gol detectado! Total = ");
     Serial.println(totalGols);
 
-    // LED feedback
+    // Feedback LED
     digitalWrite(ledPin, HIGH);
     delay(300);
     digitalWrite(ledPin, LOW);
@@ -88,7 +85,6 @@ void loop() {
   }
 }
 
-// ======== Reconectar MQTT ==========
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Conectando MQTT...");
