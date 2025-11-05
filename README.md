@@ -85,8 +85,8 @@ const char* mqtt_server = "192.168.0.11"; // IP do servidor VM/PC com Mosquitto
 
 ### 🎥 Link Vídeo
 
-* [https://youtu.be/kjcRgrMZRvkE](https://youtu.be/kjcRgrMZRvk)
-
+* [https://youtu.be/kjcRgrMZRvkE](https://youtu.be/kjcRgrMZRvk) 
+* [https://youtu.be/0zVarQ4fQXk](https://youtu.be/0zVarQ4fQXk) Funcionameto
 ---
 
 ## 💡 Observações
@@ -99,4 +99,5 @@ const char* mqtt_server = "192.168.0.11"; // IP do servidor VM/PC com Mosquitto
 ## 📌 Resumo
 
 Este projeto demonstra como **IoT, MQTT e Node-RED** podem ser integrados para criar **dashboards em tempo real**, promovendo **automação, monitoramento e análise de dados**, totalmente aplicáveis a eventos esportivos ou outras situações de coleta de dados em tempo real.
+
 
